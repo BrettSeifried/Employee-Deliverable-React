@@ -7,7 +7,7 @@
 [x] Route pages
 
 - Pages to be built
-  [] / Home
+  [x] / Home
   [] /login
   [] /register
   [] Create header

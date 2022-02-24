@@ -9,35 +9,41 @@ import React from 'react';
 import EditProfile from './views/Profile/EditProfile';
 import Register from './views/Auth/Register';
 import Login from './views/Auth/Login';
+import Confirm from './views/Auth/Confirm';
+import { UserProvider } from './context/UserContext';
+import { ProvideAuth } from './context/AuthContext';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <main>
-        <Switch>
-          {/* <PrivateRoute path="/profile/edit"> */}
-          <Route path="/profile/edit">
-            <EditProfile />
-          </Route>
-          {/* </PrivateRoute> */}
-          {/* <PrivateRoute path="/profile"> */}
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          {/* </PrivateRoute> */}
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
-      </main>
-    </Router>
+    <ProvideAuth>
+      <UserProvider>
+        <Router>
+          <Header />
+          <main>
+            <Switch>
+              <PrivateRoute path="/profile/edit">
+                <EditProfile />
+              </PrivateRoute>
+              <PrivateRoute path="/profile">
+                <Profile />
+              </PrivateRoute>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route>
+                <Confirm />
+              </Route>
+            </Switch>
+          </main>
+        </Router>
+      </UserProvider>
+    </ProvideAuth>
   );
 }
 

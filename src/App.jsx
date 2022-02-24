@@ -16,12 +16,16 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <PrivateRoute path="/profile">
-            <Profile />
-          </PrivateRoute>
-          <PrivateRoute path="/profile/edit">
+          {/* <PrivateRoute path="/profile/edit"> */}
+          <Route path="/profile/edit">
             <EditProfile />
-          </PrivateRoute>
+          </Route>
+          {/* </PrivateRoute> */}
+          {/* <PrivateRoute path="/profile"> */}
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          {/* </PrivateRoute> */}
           <Route exact path="/">
             <Home />
           </Route>

@@ -11,6 +11,7 @@
   [] /login
   [] /register
   [] Create header
+  [] route to profile or Home depending on logged in
 
   - [] /profile/
     [] create

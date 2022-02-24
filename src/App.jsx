@@ -14,7 +14,7 @@ function App() {
         <PrivateRoute>
           <Profile />
         </PrivateRoute>
-        <Route>
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>

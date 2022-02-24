@@ -4,9 +4,7 @@
 
 [x] install all things
 [x] set up folders files
-[] Route pages
-
-[] Supabase
+[x] Route pages
 
 - Pages to be built
   [] / Home

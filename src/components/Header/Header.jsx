@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="header">
       <div>
-        <Link to="/">
+        <Link to="/profile">
           <h1>Acme Inc.</h1>
         </Link>
       </div>

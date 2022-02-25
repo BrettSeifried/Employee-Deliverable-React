@@ -14,6 +14,7 @@ export default function Profile() {
       <form>
         <div>
           <label>Name:</label>
+          <span>{user?.name}</span>
         </div>
         <div>
           {/* Use from Sign up */}
@@ -22,9 +23,11 @@ export default function Profile() {
         </div>
         <div>
           <label>Birthday:</label>
+          <span>{user?.birthday}</span>
         </div>
         <div>
           <label>About Me:</label>
+          <span>{user?.bio}</span>
         </div>
         <button type="button">
           <Link to="/profile/edit">Edit Profile</Link>

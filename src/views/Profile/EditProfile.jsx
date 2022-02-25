@@ -7,12 +7,13 @@ import {
   updateProfile,
 } from '../../services/profiles';
 
-export default function EditProfile() {
+export default function EditProfile({ isCreating = false }) {
   const [name, setName] = useState([]);
   const [bio, setBio] = useState([]);
   const [birthday, setBirthday] = useState([]);
   const { user } = useUser();
-  const [alert, setAlert] = useState([]);
+  const [alert, setAlert] = useState();
+  const [email, setEmail] = useState(user.email);
 
   const onChange = ({ target }) => {
     switch (target.name) {
@@ -30,26 +31,29 @@ export default function EditProfile() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await updateProfile({
-        name,
-        email: user.email,
-        bio,
-        birthday,
-      });
-      history.pushState('/profile');
+      if (isCreating) {
+        await createProfile({ name, email, bio, birthday });
+        history.push('/profile');
+      } else {
+        const resp = await updateProfile({ name, email, bio, birthday });
+        history.replace('/profile');
+      }
     } catch (error) {
+      // throw error;
       setAlert(error.message);
+      // console.log('error', error)
     }
   };
 
   return (
     <div>
-      <h1>Create your Profile</h1>
+      <h1>{isCreating ? 'Create your Profile' : 'Edit Profile'}</h1>
       <p>{alert}</p>
       <ProfileForm
         {...name}
         {...birthday}
         {...bio}
+        {...email}
         onSubmit={onSubmit}
         onChange={onChange}
       />

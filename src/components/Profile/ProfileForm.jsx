@@ -4,19 +4,14 @@ import { useUser } from '../../context/UserContext';
 
 export default function ProfileForm({
   name,
-  email,
   birthday,
   bio,
+  email,
   onSubmit,
   onChange,
 }) {
-  const { user } = useUser();
-
   return (
     <div>
-      <div>
-        <h1>Create your Profile!</h1>
-      </div>
       <form onSubmit={onSubmit}>
         <div>
           <label>Name:</label>
@@ -31,7 +26,7 @@ export default function ProfileForm({
         <div>
           {/* Use from Sign up */}
           <label>Email:</label>
-          <p>{user?.email}</p>
+          <p>{email}</p>
         </div>
         <div>
           <label>Birthday:</label>
@@ -52,7 +47,7 @@ export default function ProfileForm({
             onChange={(e) => onChange(e)}
           />
         </div>
-        <button onClick={onSubmit}>Submit</button>
+        <button>Submit</button>
       </form>
     </div>
   );

@@ -24,6 +24,9 @@ function App() {
               <PrivateRoute path="/profile/edit">
                 <EditProfile />
               </PrivateRoute>
+              <PrivateRoute path="/profile/create">
+                <EditProfile isCreating />
+              </PrivateRoute>
               <PrivateRoute path="/profile">
                 <Profile />
               </PrivateRoute>
@@ -36,7 +39,7 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
-              <Route>
+              <Route path="/confirm/">
                 <Confirm />
               </Route>
             </Switch>

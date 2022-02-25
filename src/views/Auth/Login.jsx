@@ -15,7 +15,7 @@ export default function Login({ isSigningUp = false }) {
     try {
       if (isSigningUp) {
         await signUpUser(email, password);
-        history.push('/register');
+        history.push('/confirm');
       } else {
         const resp = await signInUser(email, password);
         setUser({ id: resp.id, email: resp.email });

@@ -12,39 +12,42 @@ import Login from './views/Auth/Login';
 import Confirm from './views/Auth/Confirm';
 import { UserProvider } from './context/UserContext';
 import { ProvideAuth } from './context/AuthContext';
+import { ProfileProvider } from './context/ProfileContext';
 
 function App() {
   return (
     <ProvideAuth>
       <UserProvider>
-        <Router>
-          <Header />
-          <main>
-            <Switch>
-              <PrivateRoute path="/profile/edit">
-                <EditProfile />
-              </PrivateRoute>
-              <PrivateRoute path="/profile/create">
-                <EditProfile isCreating />
-              </PrivateRoute>
-              <PrivateRoute path="/profile">
-                <Profile />
-              </PrivateRoute>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/register">
-                <Login isSigningUp />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/confirm/">
-                <Confirm />
-              </Route>
-            </Switch>
-          </main>
-        </Router>
+        <ProfileProvider>
+          <Router>
+            <Header />
+            <main>
+              <Switch>
+                <PrivateRoute path="/profile/edit">
+                  <EditProfile />
+                </PrivateRoute>
+                <PrivateRoute path="/profile/create">
+                  <EditProfile isCreating />
+                </PrivateRoute>
+                <PrivateRoute path="/profile">
+                  <Profile />
+                </PrivateRoute>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/register">
+                  <Login isSigningUp />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/confirm/">
+                  <Confirm />
+                </Route>
+              </Switch>
+            </main>
+          </Router>
+        </ProfileProvider>
       </UserProvider>
     </ProvideAuth>
   );

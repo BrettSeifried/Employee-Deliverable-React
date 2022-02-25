@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useUser } from '../../context/UserContext';
-import {
-  createProfile,
-  getProfile,
-  updateProfile,
-} from '../../services/profiles';
+import { createProfile, updateProfile } from '../../services/profiles';
 
 export default function EditProfile({ isCreating = false }) {
   const [name, setName] = useState([]);

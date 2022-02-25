@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useUser } from '../../context/UserContext';
 import { createProfile, updateProfile } from '../../services/profiles';
@@ -10,6 +11,7 @@ export default function EditProfile({ isCreating = false }) {
   const { user } = useUser();
   const [alert, setAlert] = useState();
   const [email, setEmail] = useState(user.email);
+  const history = useHistory();
 
   const onChange = ({ target }) => {
     switch (target.name) {

@@ -8,8 +8,8 @@ import { useUser } from './UserContext';
 export const ProfileContext = createContext();
 
 function ProfileProvider({ children }) {
-  //   const { user } = useUser();
-  //   const [loading, setLoading] = useState(false);
+  const { user } = useUser();
+  const [loading, setLoading] = useState(false);
   const [profile, setProfile] = useState({
     name: '',
     email: '',
@@ -18,12 +18,14 @@ function ProfileProvider({ children }) {
   });
 
   useEffect(() => {
+    setLoading(true);
     const fetchProfile = async () => {
       const resp = await getProfile();
       setProfile(resp);
+      setLoading(false);
     };
     fetchProfile();
-  }, []);
+  }, [user]);
 
   return (
     <ProfileContext.Provider value={{ profile, setProfile }}>

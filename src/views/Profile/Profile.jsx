@@ -2,20 +2,24 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useHistory } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import { useProfile } from '../../context/ProfileContext';
-import { getProfile } from '../../services/profiles';
 
 export default function Profile() {
   const { profile } = useProfile();
 
-  console.log('profile', profile);
-
+  const history = useHistory();
   return (
     <div>
+      <p>
+        {profile.name === ''
+          ? history.push('/profile/create')
+          : history.push('/profile')}
+      </p>
       {/* {loading && <p>loading...</p>} */}
       <div>
-        <h1>Create your Profile!</h1>
+        <h1>Your Profile!</h1>
       </div>
       <form>
         <div>

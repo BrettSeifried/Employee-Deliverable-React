@@ -10,6 +10,7 @@ import { signInUser, signUpUser } from '../../services/users';
 export default function Login({ isSigningUp = false }) {
   const { setUser } = useUser();
   const history = useHistory();
+  const [alert, setAlert] = useState();
 
   const handleAuth = async (email, password) => {
     try {
@@ -22,7 +23,7 @@ export default function Login({ isSigningUp = false }) {
         history.replace('/profile');
       }
     } catch (error) {
-      throw error;
+      setAlert(error.message);
     }
   };
 
@@ -42,6 +43,7 @@ export default function Login({ isSigningUp = false }) {
           Sign Up <Link to="/register">Sign Up</Link>
         </p>
       )}
+      <p>{alert}</p>
     </div>
   );
 }

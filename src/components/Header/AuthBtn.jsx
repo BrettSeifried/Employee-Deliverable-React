@@ -19,7 +19,7 @@ export default function AuthButton({ className }) {
           Sign Out
         </button>
       ) : (
-        <Link to="/login" className={className}>
+        <Link to="/login">
           <button>Sign In</button>
         </Link>
       )}

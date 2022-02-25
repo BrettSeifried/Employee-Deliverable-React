@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default function Login() {
   return (
     <div>
-      <h1>Welcome to ACME Inc.</h1>
       <h2>Sign up for an Account</h2>
       <form>
         <div>

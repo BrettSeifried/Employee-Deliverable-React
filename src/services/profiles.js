@@ -6,6 +6,7 @@ export async function getProfile() {
 }
 
 export async function updateProfile({ name, email, bio, birthday }) {
+  console.log('email', email);
   const request = await client
     .from('profiles')
     .update({ name, bio, birthday })

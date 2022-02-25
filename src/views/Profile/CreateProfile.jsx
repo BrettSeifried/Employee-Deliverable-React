@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProfileForm from '../../components/Profile/ProfileForm';
 import { useUser } from '../../context/UserContext';
-import {
-  createProfile,
-  getProfile,
-  updateProfile,
-} from '../../services/profiles';
+import { createProfile } from '../../services/profiles';
 
-export default function EditProfile() {
+export default function CreateProfile() {
   const [name, setName] = useState([]);
   const [bio, setBio] = useState([]);
-  const [birthday, setBirthday] = useState([]);
+  const [birthday, setBirthday] = [];
   const { user } = useUser();
-  const [alert, setAlert] = useState([]);
+  const [alert, setAlert] = [];
+
+  console.log('user', user);
 
   const onChange = ({ target }) => {
     switch (target.name) {
@@ -30,7 +28,7 @@ export default function EditProfile() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await updateProfile({
+      const resp = await createProfile({
         name,
         email: user.email,
         bio,
@@ -44,10 +42,10 @@ export default function EditProfile() {
 
   return (
     <div>
-      <h1>Create your Profile</h1>
       <p>{alert}</p>
       <ProfileForm
         {...name}
+        {...email}
         {...birthday}
         {...bio}
         onSubmit={onSubmit}

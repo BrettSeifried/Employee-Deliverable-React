@@ -1,8 +1,11 @@
 import React from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Link, Route } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
 
 export default function Profile() {
+  const { user } = useUser();
+
   return (
     <div>
       <div>
@@ -15,6 +18,7 @@ export default function Profile() {
         <div>
           {/* Use from Sign up */}
           <label>Email:</label>
+          <span>{user?.email}</span>
         </div>
         <div>
           <label>Birthday:</label>

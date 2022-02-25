@@ -4,8 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import AuthLogin from '../../components/Auth/AuthLogin';
 import { useUser } from '../../context/UserContext';
-import { useAuth } from '../../hooks/useAuth';
-import { useForm } from '../../hooks/useForm';
+
 import { signInUser, signUpUser } from '../../services/users';
 
 export default function Login({ isSigningUp = false }) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import AuthLogin from '../../components/Auth/AuthLogin';
+import AuthLogin from '../../componentz/Auth/AuthLogin';
 import { useUser } from '../../context/UserContext';
 
 import { signInUser, signUpUser } from '../../services/users';

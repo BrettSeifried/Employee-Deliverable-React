@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import ProfileForm from '../../components/Profile/ProfileForm';
+import ProfileForm from '../../componentz/Profile/ProfileForm';
 import { useUser } from '../../context/UserContext';
 import { createProfile, updateProfile } from '../../services/profiles';
 
